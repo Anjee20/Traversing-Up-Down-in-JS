@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unordered List in JavaScript</title>
+    </head>
+    <body>
+
+        <script>
+            //Lets create the parent elements
+            u = document.createElement('ul');
+            console.log(u);
+            
+            for(let i=0; i<10; i++){
+                var li = document.createElement('li');
+                li.setAttribute('class','a_li');
+                li.classList.add('common');
+
+                var tn = document.createTextNode('Hello ' + (i+1));
+                li.appendChild(tn);
+                console.log(li);
+
+                u.appendChild(li);
+            }
+
+            document.body.appendChild(u);
+
+            var u;
+            var object = document.getElementsByClassName('common');
+            console.log(object);
+
+            console.log(typeof object);
+
+            for (var p in object) {
+               console.log(p);
+               console.log(!isNaN(p));
+
+               //console.log(object[p]);
+
+               if(!isNaN(p) && (p < 3) || (p > 6)){
+                    object[p].style.color = 'red';
+               }
+                           
+            }
+
+
+            var o1 = {
+                "name":"Anjali",
+                "surname":"Mistry",
+                "mission":"To Educate Students",
+
+                getFullName:function(){
+
+                    return this.name + " " + this.surname;
+                },
+
+                getMission:function(){
+
+                    return this.mission;
+                }
+            };
+
+            //How to access the properties of JS Object
+            console.log(o1.name);
+
+            console.log(o1["surname"]);
+
+            let m = 'mission';
+            console.log(o1[m]);
+
+            console.log("Full Name: " + o1.getFullName());
+
+            console.log("Mission: " + o1.getMission());
+
+        </script>
+        
+    </body>
+</html>
